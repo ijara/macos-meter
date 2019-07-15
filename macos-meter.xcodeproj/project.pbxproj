@@ -10,6 +10,8 @@
 		A175430222DC2157005CB6CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175430122DC2157005CB6CE /* AppDelegate.swift */; };
 		A175430422DC218E005CB6CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A175430322DC218E005CB6CE /* Assets.xcassets */; };
 		A175430722DC218E005CB6CE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A175430522DC218E005CB6CE /* MainMenu.xib */; };
+		A175431022DC2FFA005CB6CE /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175430F22DC2FFA005CB6CE /* StatusMenuController.swift */; };
+		A175431222DC3C06005CB6CE /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175431122DC3C06005CB6CE /* WeatherAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,9 @@
 		A175430622DC218E005CB6CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A175430822DC218E005CB6CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A175430922DC218E005CB6CE /* macos_meter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macos_meter.entitlements; sourceTree = "<group>"; };
+		A175430F22DC2FFA005CB6CE /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		A175431122DC3C06005CB6CE /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
+		A175431322DC3FD3005CB6CE /* macos-meter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macos-meter.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,11 +56,14 @@
 		A175430022DC2157005CB6CE /* macos-meter */ = {
 			isa = PBXGroup;
 			children = (
+				A175431322DC3FD3005CB6CE /* macos-meter.entitlements */,
 				A175430122DC2157005CB6CE /* AppDelegate.swift */,
+				A175430F22DC2FFA005CB6CE /* StatusMenuController.swift */,
 				A175430322DC218E005CB6CE /* Assets.xcassets */,
 				A175430522DC218E005CB6CE /* MainMenu.xib */,
 				A175430822DC218E005CB6CE /* Info.plist */,
 				A175430922DC218E005CB6CE /* macos_meter.entitlements */,
+				A175431122DC3C06005CB6CE /* WeatherAPI.swift */,
 			);
 			path = "macos-meter";
 			sourceTree = "<group>";
@@ -92,6 +100,11 @@
 				TargetAttributes = {
 					A17542FD22DC2156005CB6CE = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -130,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A175431222DC3C06005CB6CE /* WeatherAPI.swift in Sources */,
+				A175431022DC2FFA005CB6CE /* StatusMenuController.swift in Sources */,
 				A175430222DC2157005CB6CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "macos-meter/macos_meter.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macos-meter/macos-meter.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Z99Q64T5RK;
@@ -286,7 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "macos-meter/macos_meter.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macos-meter/macos-meter.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Z99Q64T5RK;
