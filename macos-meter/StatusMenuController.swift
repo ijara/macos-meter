@@ -27,7 +27,9 @@ class StatusMenuController: NSObject , PreferencesWindowDelegate , WeatherAPIDel
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
+        exit(0)
     }
+    
     
     
     @IBAction func updateClicked(_ sender: NSMenuItem) {
