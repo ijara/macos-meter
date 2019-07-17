@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -16,6 +17,8 @@
         <customObject id="VaQ-IS-cgG" customClass="StatusMenuController" customModule="macos_meter" customModuleProvider="target">
             <connections>
                 <outlet property="statusMenu" destination="Lvm-IH-fs9" id="o6y-o7-1Vo"/>
+                <outlet property="weatherMenuItem" destination="4W6-gO-sXE" id="wXe-UK-5EY"/>
+                <outlet property="weatherView" destination="0XP-0n-JHs" id="Br3-Ez-Pdl"/>
             </connections>
         </customObject>
         <menu id="Lvm-IH-fs9">
@@ -27,6 +30,16 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="OC0-9c-9MH"/>
+                <menuItem title="weather" id="4W6-gO-sXE">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="WyN-Vy-YUJ"/>
+                <menuItem title="Preferences" id="i8q-vh-84C">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="preferencesClicked:" target="VaQ-IS-cgG" id="aXS-6n-Kii"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="quit" id="OyR-Hw-X87">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -36,5 +49,40 @@
             </items>
             <point key="canvasLocation" x="-689" y="-93"/>
         </menu>
+        <customView id="0XP-0n-JHs" customClass="WeatherView" customModule="macos_meter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="289" height="105"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDC-Qd-qVt">
+                    <rect key="frame" x="20" y="37" width="48" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="b0E-TN-mM5"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8bU-gj-P4p">
+                    <rect key="frame" x="74" y="60" width="93" height="25"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="City" id="c0Y-UD-W2Q">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-MS-R0X">
+                    <rect key="frame" x="74" y="37" width="197" height="17"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="wiP-h3-gBY">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <connections>
+                <outlet property="cityTextField" destination="8bU-gj-P4p" id="sVo-Wm-ln4"/>
+                <outlet property="currentConditionsTextField" destination="TKt-MS-R0X" id="6EY-y5-iYx"/>
+                <outlet property="imageView" destination="FDC-Qd-qVt" id="Pyg-kX-5a0"/>
+            </connections>
+            <point key="canvasLocation" x="-615.5" y="54.5"/>
+        </customView>
     </objects>
 </document>

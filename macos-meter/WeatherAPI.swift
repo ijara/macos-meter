@@ -12,9 +12,9 @@ struct Weather: CustomStringConvertible {
     var city: String
     var currentTemp: Float
     var conditions: String
-    
+    var icon: String
     var description: String {
-        return "\(city): \(currentTemp)F and \(conditions)"
+        return "\(currentTemp)C and \(conditions)"
     }
 }
 func weatherFromJSONData(_ data: Data) -> Weather? {
@@ -36,7 +36,9 @@ func weatherFromJSONData(_ data: Data) -> Weather? {
         city: json["name"] as! String,
         //currentTemp: mainDict["temp"] as! Float,
         currentTemp: (mainDict["temp"] as! NSNumber).floatValue,
-        conditions: weatherDict["main"] as! String
+        conditions: weatherDict["main"] as! String,
+        icon: weatherDict["icon"] as! String
+
     )
     
     return weather
@@ -51,11 +53,11 @@ class WeatherAPI {
     init(delegate: WeatherAPIDelegate) {
         self.delegate = delegate
     }
-    func fetchWeather(_ query: String) {
+    func fetchWeather(_ query: String, success: @escaping (Weather) -> Void) {
         let session = URLSession.shared
         // url-escape the query string we're passed
         let escapedQuery = query.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
-        let url = URL(string: "\(BASE_URL)?APPID=\(API_KEY)&units=imperial&q=\(escapedQuery!)")
+        let url = URL(string: "\(BASE_URL)?APPID=\(API_KEY)&units=metric&q=\(escapedQuery!)")
         let task = session.dataTask(with: url!) { data, response, err in
             // first check for a hard error
             if let error = err {
@@ -67,7 +69,7 @@ class WeatherAPI {
                 switch httpResponse.statusCode {
                 case 200: // all good!
                     if let weather = weatherFromJSONData(data!) {
-                        self.delegate?.weatherDidUpdate(weather)
+                        success(weather)
                     }
                 case 401: // unauthorized
                     NSLog("weather api returned an 'unauthorized' response. Did you set your API key?")

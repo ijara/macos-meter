@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A13EA12222DEAB45009BC90D /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EA12122DEAB45009BC90D /* WeatherView.swift */; };
+		A13EA12522DEB78D009BC90D /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EA12322DEB78D009BC90D /* PreferencesWindow.swift */; };
+		A13EA12622DEB78D009BC90D /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A13EA12422DEB78D009BC90D /* PreferencesWindow.xib */; };
 		A175430222DC2157005CB6CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A175430122DC2157005CB6CE /* AppDelegate.swift */; };
 		A175430422DC218E005CB6CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A175430322DC218E005CB6CE /* Assets.xcassets */; };
 		A175430722DC218E005CB6CE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A175430522DC218E005CB6CE /* MainMenu.xib */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A13EA12122DEAB45009BC90D /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		A13EA12322DEB78D009BC90D /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
+		A13EA12422DEB78D009BC90D /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		A17542FE22DC2157005CB6CE /* macos-meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "macos-meter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A175430122DC2157005CB6CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A175430322DC218E005CB6CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +67,9 @@
 				A175430F22DC2FFA005CB6CE /* StatusMenuController.swift */,
 				A175430322DC218E005CB6CE /* Assets.xcassets */,
 				A175430522DC218E005CB6CE /* MainMenu.xib */,
+				A13EA12322DEB78D009BC90D /* PreferencesWindow.swift */,
+				A13EA12422DEB78D009BC90D /* PreferencesWindow.xib */,
+				A13EA12122DEAB45009BC90D /* WeatherView.swift */,
 				A175430822DC218E005CB6CE /* Info.plist */,
 				A175430922DC218E005CB6CE /* macos_meter.entitlements */,
 				A175431122DC3C06005CB6CE /* WeatherAPI.swift */,
@@ -132,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A175430422DC218E005CB6CE /* Assets.xcassets in Resources */,
+				A13EA12622DEB78D009BC90D /* PreferencesWindow.xib in Resources */,
 				A175430722DC218E005CB6CE /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,8 +154,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A175431222DC3C06005CB6CE /* WeatherAPI.swift in Sources */,
+				A13EA12522DEB78D009BC90D /* PreferencesWindow.swift in Sources */,
 				A175431022DC2FFA005CB6CE /* StatusMenuController.swift in Sources */,
 				A175430222DC2157005CB6CE /* AppDelegate.swift in Sources */,
+				A13EA12222DEAB45009BC90D /* WeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
