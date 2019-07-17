@@ -8,10 +8,10 @@
 
 import Cocoa
 
-class StatusMenuController: NSObject {
+class StatusMenuController: NSObject, WeatherAPIDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    let weatherAPI = WeatherAPI()
+    var weatherAPI: WeatherAPI!
 
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
@@ -22,16 +22,19 @@ class StatusMenuController: NSObject {
         weatherAPI.fetchWeather("Santiago")
 
     }
-    
+
     override func awakeFromNib() {
         let icon = NSImage(named: "statusIcon")
         icon?.isTemplate = true // best for dark mode
         statusItem.image = icon
         statusItem.menu = statusMenu
-        
-        
+        weatherAPI = WeatherAPI(delegate: self)
+        weatherAPI.fetchWeather("Santiago")
+
 
     }
-    
+    func weatherDidUpdate(_ weather: Weather) {
+        NSLog(weather.description)
+    }
    
 }

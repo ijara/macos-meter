@@ -7,10 +7,15 @@
 //
 
 import Foundation
-struct Weather {
+
+struct Weather: CustomStringConvertible {
     var city: String
     var currentTemp: Float
     var conditions: String
+    
+    var description: String {
+        return "\(city): \(currentTemp)F and \(conditions)"
+    }
 }
 func weatherFromJSONData(_ data: Data) -> Weather? {
     typealias JSONDict = [String:AnyObject]
@@ -36,11 +41,16 @@ func weatherFromJSONData(_ data: Data) -> Weather? {
     
     return weather
 }
-
+protocol WeatherAPIDelegate {
+    func weatherDidUpdate(_ weather: Weather)
+}
 class WeatherAPI {
     let API_KEY = "c0b2027accbe8000d2adea48c133f3e5"
     let BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
-    
+    var delegate: WeatherAPIDelegate?
+    init(delegate: WeatherAPIDelegate) {
+        self.delegate = delegate
+    }
     func fetchWeather(_ query: String) {
         let session = URLSession.shared
         // url-escape the query string we're passed
@@ -57,7 +67,7 @@ class WeatherAPI {
                 switch httpResponse.statusCode {
                 case 200: // all good!
                     if let weather = weatherFromJSONData(data!) {
-                        NSLog("\(weather)")
+                        self.delegate?.weatherDidUpdate(weather)
                     }
                 case 401: // unauthorized
                     NSLog("weather api returned an 'unauthorized' response. Did you set your API key?")
